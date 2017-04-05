@@ -12,6 +12,8 @@
 		DE0B536F1E9509870000465A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE0B536D1E9509870000465A /* Main.storyboard */; };
 		DE0B53711E9509870000465A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE0B53701E9509870000465A /* Assets.xcassets */; };
 		DE0B53741E9509870000465A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE0B53721E9509870000465A /* LaunchScreen.storyboard */; };
+		DE0B537C1E954AD70000465A /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B537B1E954AD70000465A /* PageCell.swift */; };
+		DE0B537E1E9553B50000465A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B537D1E9553B50000465A /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		DE0B53701E9509870000465A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE0B53731E9509870000465A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE0B53751E9509870000465A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE0B537B1E954AD70000465A /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		DE0B537D1E9553B50000465A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				DE0B53701E9509870000465A /* Assets.xcassets */,
 				DE0B53721E9509870000465A /* LaunchScreen.storyboard */,
 				DE0B53751E9509870000465A /* Info.plist */,
+				DE0B537B1E954AD70000465A /* PageCell.swift */,
+				DE0B537D1E9553B50000465A /* Extensions.swift */,
 			);
 			path = RBWLFinal;
 			sourceTree = "<group>";
@@ -139,6 +145,8 @@
 			files = (
 				DE0B536C1E9509870000465A /* ViewController.swift in Sources */,
 				DE0B536A1E9509870000465A /* AppDelegate.swift in Sources */,
+				DE0B537C1E954AD70000465A /* PageCell.swift in Sources */,
+				DE0B537E1E9553B50000465A /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

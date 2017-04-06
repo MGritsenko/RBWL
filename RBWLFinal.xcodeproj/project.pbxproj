@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE0080BE1E969222006D2C65 /* PanelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0080BD1E969222006D2C65 /* PanelCell.swift */; };
+		DE0080C01E969488006D2C65 /* BatteryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0080BF1E969488006D2C65 /* BatteryCell.swift */; };
+		DE0080C21E9695E8006D2C65 /* SpeedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0080C11E9695E8006D2C65 /* SpeedometerView.swift */; };
 		DE0B536A1E9509870000465A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B53691E9509870000465A /* AppDelegate.swift */; };
 		DE0B536C1E9509870000465A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0B536B1E9509870000465A /* ViewController.swift */; };
 		DE0B536F1E9509870000465A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE0B536D1E9509870000465A /* Main.storyboard */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE0080BD1E969222006D2C65 /* PanelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelCell.swift; sourceTree = "<group>"; };
+		DE0080BF1E969488006D2C65 /* BatteryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryCell.swift; sourceTree = "<group>"; };
+		DE0080C11E9695E8006D2C65 /* SpeedometerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedometerView.swift; sourceTree = "<group>"; };
 		DE0B53661E9509870000465A /* RBWLFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RBWLFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0B53691E9509870000465A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE0B536B1E9509870000465A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +72,9 @@
 				DE0B53751E9509870000465A /* Info.plist */,
 				DE0B537B1E954AD70000465A /* PageCell.swift */,
 				DE0B537D1E9553B50000465A /* Extensions.swift */,
+				DE0080BD1E969222006D2C65 /* PanelCell.swift */,
+				DE0080BF1E969488006D2C65 /* BatteryCell.swift */,
+				DE0080C11E9695E8006D2C65 /* SpeedometerView.swift */,
 			);
 			path = RBWLFinal;
 			sourceTree = "<group>";
@@ -146,7 +155,10 @@
 				DE0B536C1E9509870000465A /* ViewController.swift in Sources */,
 				DE0B536A1E9509870000465A /* AppDelegate.swift in Sources */,
 				DE0B537C1E954AD70000465A /* PageCell.swift in Sources */,
+				DE0080C21E9695E8006D2C65 /* SpeedometerView.swift in Sources */,
+				DE0080BE1E969222006D2C65 /* PanelCell.swift in Sources */,
 				DE0B537E1E9553B50000465A /* Extensions.swift in Sources */,
+				DE0080C01E969488006D2C65 /* BatteryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +324,7 @@
 				DE0B537A1E9509870000465A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

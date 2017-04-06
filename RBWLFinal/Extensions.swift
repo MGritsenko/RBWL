@@ -56,3 +56,40 @@ extension UIView {
     
 }
 
+extension UIColor {
+    
+    convenience init(hex: Int) {
+        let components = (
+            R: CGFloat((hex >> 16) & 0xff) / 255,
+            G: CGFloat((hex >> 08) & 0xff) / 255,
+            B: CGFloat((hex >> 00) & 0xff) / 255
+        )
+        self.init(red: components.R, green: components.G, blue: components.B, alpha: 1)
+    }
+    
+    class var currentSpeedColor: UIColor {
+        let color = 0x499DF3
+        return UIColor(hex: color)
+    }
+    
+    class var speedBackgroundColor: UIColor {
+        let color = 0x2F3033
+        return UIColor(hex: color)
+    }
+    
+    class var speedModeColor: UIColor {
+        let color = 0x2F3033
+        return UIColor(hex: color)
+    }
+    
+    class var bigNotchesColor: UIColor {
+        let color = 0xFFFFFF
+        return UIColor(hex: color)
+    }
+    
+    class var smallNotchesColor: UIColor {
+        let color = 0x707070
+        return UIColor(hex: color)
+    }
+}
+

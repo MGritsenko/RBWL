@@ -52,7 +52,7 @@ let pi: CGFloat = CGFloat(Double.pi)
         let smallNotchesSize: CGFloat = radiusSpeedo * 0.05
         
         let needleWidth: CGFloat = radiusSpeedo * 0.009
-        let needleSize: CGFloat = radiusSpeedo * 0.305
+        let needleSize: CGFloat = radiusSpeedo * 0.25
         
         //Background
         let speedBackgroundPath = UIBezierPath(arcCenter: center,
@@ -99,7 +99,7 @@ let pi: CGFloat = CGFloat(Double.pi)
         let angle = arcLengthBackground * CGFloat(currentSpeed) + startAngle - pi / 2
         
         context!.rotate(by: angle)
-        context!.translateBy(x: 0, y: radiusSpeedo / 5.15)
+        context!.translateBy(x: 0, y: radiusSpeedo / 4.05)
         
         needlePath.fill()
         context!.restoreGState()
@@ -172,11 +172,11 @@ let pi: CGFloat = CGFloat(Double.pi)
         let myString = String(Float(round(currentSpeed * 10) / 10))
         let attrString = NSMutableAttributedString(string: myString as String)
         attrString.addAttribute(NSFontAttributeName, value: UIFont.monospacedDigitSystemFont(
-            ofSize: UIFont.systemFontSize * 4.5,
+            ofSize: radiusSpeedo * 0.3,
             weight: UIFontWeightRegular), range: NSMakeRange(0, attrString.length - 1))
         
         attrString.addAttribute(NSFontAttributeName, value: UIFont.monospacedDigitSystemFont(
-            ofSize: UIFont.systemFontSize * 2.25,
+            ofSize: radiusSpeedo * 0.2,
             weight: UIFontWeightRegular), range: NSMakeRange(attrString.length - 1, 1))
         
         
@@ -187,10 +187,12 @@ let pi: CGFloat = CGFloat(Double.pi)
         attrString.draw(at: CGPoint(x: -boundingBox2.width / 2, y: -boundingBox2.height / 2))
         
         //Draw km/h
+        let constraintRect3 = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
         let kmHString = "km/h"
-        let boundingBox3 = kmHString.boundingRect(with: constraintRect2, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
-        let attributesKmH = [NSForegroundColorAttributeName: bigNotchesColor,
+        let boundingBox3 = kmHString.boundingRect(with: constraintRect3, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
+        let attributesKmH = [NSForegroundColorAttributeName: smallNotchesColor,
                              NSFontAttributeName: UIFont.systemFont(ofSize: CGFloat(radiusSpeedo * 0.06))] as [String : Any]
+        
         kmHString.draw(at: CGPoint(x: -boundingBox3.width / 2, y: boundingBox2.height / 2), withAttributes: attributesKmH)
         
         //Draw battery

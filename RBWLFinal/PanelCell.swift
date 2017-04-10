@@ -19,7 +19,7 @@ class PanelCell: UICollectionViewCell {
     
     let currentRunView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 8.0;
+        view.layer.cornerRadius = 5.0;
         view.layer.masksToBounds = true;
         view.backgroundColor = UIColor(hex: 0x1A1A1A)
         
@@ -28,34 +28,75 @@ class PanelCell: UICollectionViewCell {
     
     let totalRunView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 6.0;
+        view.layer.cornerRadius = 5.0;
         view.layer.masksToBounds = true;
         view.backgroundColor = UIColor(hex: 0x1A1A1A)
         
         return view
     }()
     
-    let rookieButton: UIButton = {
+    lazy var rookieButton: UIButton = {
         let button = UIButton()
         button.setTitle("BEGINNER", for: [])
-        button.setTitleColor(UIColor.smallNotchesColor, for: .normal)
         button.setTitleColor(UIColor.white, for: .selected)
-        button.layer.cornerRadius = 8.0
-        button.backgroundColor = UIColor.currentSpeedColor
+        button.setTitleColor(UIColor.smallNotchesColor, for: .normal)
+        button.layer.cornerRadius = 5.0
+        button.backgroundColor = UIColor(hex: 0x212121)
+        button.addTarget(self, action:#selector(pressButton), for: .touchUpInside)
+        
+        button.titleLabel?.font = UIFont(name: "Helvetica", size: 14)
+        button.tag = 1
         
         return button
     }()
     
-    let standardButton: UIButton = {
+    lazy var standardButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Beginner", for: .normal)
-        button.setTitleShadowColor(.yellow, for: .selected)
+        button.setTitle("STANDARD", for: [])
+        button.setTitleColor(UIColor.white, for: .selected)
+        button.setTitleColor(UIColor.smallNotchesColor, for: .normal)
+        button.layer.cornerRadius = 5.0
+        button.backgroundColor = UIColor(hex: 0x212121)
+        button.addTarget(self, action:#selector(pressButton), for: .touchUpInside)
+        
+        button.titleLabel?.font = UIFont(name: "Helvetica", size: 14)
+        button.tag = 2
         
         return button
     }()
     
-    let sportButton: UIButton = {
+    lazy var sportButton: UIButton = {
         let button = UIButton()
+        button.setTitle("SPORT", for: [])
+        button.setTitleColor(UIColor.white, for: .selected)
+        button.setTitleColor(UIColor.smallNotchesColor, for: .normal)
+        button.layer.cornerRadius = 5.0
+        button.backgroundColor = UIColor(hex: 0x212121)
+        button.addTarget(self, action:#selector(pressButton), for: .touchUpInside)
+    
+        button.titleLabel?.font = UIFont(name: "Helvetica", size: 14)
+        button.tag = 3
+        
+        return button
+    }()
+    
+    lazy var on: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "on_off"), for: .normal)
+        
+        return button
+    }()
+    
+    lazy var off: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "off_off"), for: .normal)
+        
+        return button
+    }()
+    
+    lazy var auto: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "auto_on"), for: .normal)
         
         return button
     }()
@@ -63,10 +104,31 @@ class PanelCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
     
+        let modeStackView   = UIStackView()
+        modeStackView.axis  = UILayoutConstraintAxis.horizontal
+        modeStackView.distribution  = UIStackViewDistribution.fillEqually
+        modeStackView.alignment = UIStackViewAlignment.fill
+        modeStackView.spacing   = 8.0
+        modeStackView.addArrangedSubview(rookieButton)
+        modeStackView.addArrangedSubview(standardButton)
+        modeStackView.addArrangedSubview(sportButton)
+        modeStackView.translatesAutoresizingMaskIntoConstraints = false;
+    
+        let lightsStackView = UIStackView()
+        lightsStackView.axis  = UILayoutConstraintAxis.horizontal
+        lightsStackView.distribution  = UIStackViewDistribution.fillEqually
+        lightsStackView.alignment = UIStackViewAlignment.fill
+        lightsStackView.spacing   = 8.0
+        lightsStackView.addArrangedSubview(on)
+        lightsStackView.addArrangedSubview(off)
+        lightsStackView.addArrangedSubview(auto)
+        lightsStackView.translatesAutoresizingMaskIntoConstraints = false;
+        
         addSubview(speedometerView)
         addSubview(currentRunView)
         addSubview(totalRunView)
-        addSubview(rookieButton)
+        addSubview(modeStackView)
+        addSubview(lightsStackView)
         
         _ = speedometerView.anchor(topAnchor, left: nil, bottom: nil, right: nil, topConstant: 66 + 40 + 28, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: frame.width * 0.9, heightConstant: frame.width * 0.9)
         speedometerView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -75,7 +137,9 @@ class PanelCell: UICollectionViewCell {
         
         _ = totalRunView.anchor(speedometerView.bottomAnchor, left: centerXAnchor, bottom: nil, right: rightAnchor, topConstant: -frame.width * 0.1, leftConstant: 5, bottomConstant: 0, rightConstant: 25, widthConstant: frame.width * 0.4, heightConstant: frame.width * 0.25)
         
-        _ = rookieButton.anchor(totalRunView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: frame.width * 0.06, leftConstant: 25, bottomConstant: 0, rightConstant: 25, widthConstant: frame.width * 0.4, heightConstant: frame.width * 0.12)
+        _ = modeStackView.anchor(totalRunView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: frame.width * 0.06, leftConstant: 25, bottomConstant: 0, rightConstant: 25, widthConstant: 0, heightConstant: frame.width * 0.108)
+        
+        _ = lightsStackView.anchor(modeStackView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: frame.width * 0.06, leftConstant: 25, bottomConstant: 0, rightConstant: 25, widthConstant: 0, heightConstant: frame.width * 0.108)
         
         backgroundColor = UIColor(hex: 0x212121)
     }
@@ -84,5 +148,39 @@ class PanelCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func pressButton(sender: AnyObject){
+        
+        switch sender.tag {
+        case 1:
+            rookieButton.setTitleColor(.white, for: .normal)
+            standardButton.setTitleColor(.smallNotchesColor, for: .normal)
+            sportButton.setTitleColor(.smallNotchesColor, for: .normal)
+            
+            rookieButton.backgroundColor = .currentSpeedColor
+            standardButton.backgroundColor = UIColor(hex: 0x212121)
+            sportButton.backgroundColor = UIColor(hex: 0x212121)
+            break
+        case 2:
+            rookieButton.setTitleColor(.smallNotchesColor, for: .normal)
+            standardButton.setTitleColor(.white, for: .normal)
+            sportButton.setTitleColor(.smallNotchesColor, for: .normal)
+            
+            rookieButton.backgroundColor = UIColor(hex: 0x212121)
+            standardButton.backgroundColor = .currentSpeedColor
+            sportButton.backgroundColor = UIColor(hex: 0x212121)
+            break
+        case 3:
+            rookieButton.setTitleColor(.smallNotchesColor, for: .normal)
+            standardButton.setTitleColor(.smallNotchesColor, for: .normal)
+            sportButton.setTitleColor(.white, for: .normal)
+            
+            rookieButton.backgroundColor = UIColor(hex: 0x212121)
+            standardButton.backgroundColor = UIColor(hex: 0x212121)
+            sportButton.backgroundColor = .currentSpeedColor
+            break
+        default:
+             print(sender.tag)
+        }
+    }
 }
- 
+
